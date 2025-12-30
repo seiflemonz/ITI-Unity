@@ -37,6 +37,13 @@ public class PlayerMove : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             isGrounded = false;
+            anim.SetBool("isGrounded", false);
+            anim.SetTrigger("Jump");
+        }
+
+        if ((Input.GetKeyDown(KeyCode.E)))
+        {
+            anim.SetTrigger("Attack");
         }
     }
 
@@ -57,6 +64,7 @@ public class PlayerMove : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+            anim.SetBool("isGrounded", true);
         }
     }
 }
