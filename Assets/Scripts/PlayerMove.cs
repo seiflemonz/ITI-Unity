@@ -37,7 +37,7 @@ public class PlayerMove : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             isGrounded = false;
-            anim.SetBool("isGrounded", false);
+            
             anim.SetTrigger("Jump");
         }
 
@@ -45,6 +45,8 @@ public class PlayerMove : MonoBehaviour
         {
             anim.SetTrigger("Attack");
         }
+
+        anim.SetBool("isGrounded", isGrounded);
     }
 
     void FixedUpdate()
@@ -64,7 +66,15 @@ public class PlayerMove : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
-            anim.SetBool("isGrounded", true);
         }
     }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = false;
+        }
+    }
+
 }
