@@ -134,6 +134,8 @@ MonoBehaviour:
   damage: 10
   voiceClip: {fileID: 8300000, guid: d2964afafe3aed04db509413d5008ea4, type: 3}
   voiceInterval: 3
+  healthPickupPrefab: {fileID: 8081652086911665656, guid: 5c181bf18f1d0f946ab32e1581837639, type: 3}
+  dropChance: 0.5
 --- !u!50 &6081018907293208718
 Rigidbody2D:
   serializedVersion: 5

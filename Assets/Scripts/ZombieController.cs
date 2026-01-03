@@ -16,6 +16,11 @@ public class ZombieController : MonoBehaviour
     private AudioSource audioSource;
     private float voiceTimer;
 
+    [Header("Drop Settings")]
+    public GameObject healthPickupPrefab;
+    [Range(0f, 1f)]
+    public float dropChance = 0.5f;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -75,14 +80,30 @@ public class ZombieController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        // Destroy zombie if hit by bullet
         if (collision.CompareTag("Bullet"))
         {
-            Destroy(gameObject);           // zombie disappears
-            Destroy(collision.gameObject); // optional: destroy bullet on impact
+            TryDropHealth();
+
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+
             Debug.Log("Zombie hit by bullet!");
         }
     }
+    void TryDropHealth()
+    {
+        if (healthPickupPrefab == null) return;
+
+        if (Random.value <= dropChance)
+        {
+            Instantiate(
+                healthPickupPrefab,
+                transform.position,
+                Quaternion.identity
+            );
+        }
+    }
+
 
     private void PlayVoiceLine()
     {

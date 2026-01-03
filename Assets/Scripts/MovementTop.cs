@@ -9,7 +9,7 @@ public class TopDownPlayerController : MonoBehaviour
 
     [Header("Health")]
     public int maxHealth = 100;
-    public int currentHealth;
+    public float currentHealth;
 
     [Header("Shooting")]
     public GameObject bulletPrefab;      // assign your orange ball prefab here
@@ -25,6 +25,10 @@ public class TopDownPlayerController : MonoBehaviour
 
     private Vector2 movement;
     private float lastRotation;
+
+
+    public GameObject healthBar;
+    public GameObject youDied;
 
     void Awake()
     {
@@ -71,6 +75,8 @@ public class TopDownPlayerController : MonoBehaviour
         {
             Die();
         }
+
+        healthBar.GetComponent<RectTransform>().localScale = new Vector3((currentHealth / 100.0f) * 5.0f,1,1);
     }
 
     void FixedUpdate()
@@ -120,6 +126,18 @@ public class TopDownPlayerController : MonoBehaviour
     {
         Debug.Log("Player died!");
         this.enabled = false;
+        youDied.SetActive(true);
+        healthBar.GetComponent<RectTransform>().localScale = new Vector3((currentHealth / 100.0f) * 5.0f, 1, 1);
         // Optionally: play death animation, disable sprite, etc.
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Health"))
+        {
+            Heal(5);
+            Destroy(other.gameObject);
+        }
+    }
+
 }
