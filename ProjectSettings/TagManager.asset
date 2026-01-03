@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Ground
+  - Zombie
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -41,6 +43,24 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Cone
+    uniqueID: 28592353
+    locked: 0
+  - name: Enemies
+    uniqueID: 3310328055
+    locked: 0
+  - name: Walls
+    uniqueID: 362727649
+    locked: 0
+  - name: Zombies
+    uniqueID: 4070879825
+    locked: 0
+  - name: Overlay
+    uniqueID: 315210825
+    locked: 0
+  - name: Humans
+    uniqueID: 315254637
     locked: 0
   m_RenderingLayers:
   - Default
