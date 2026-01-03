@@ -49,7 +49,7 @@ public class CloudGenerate : MonoBehaviour
             cloudElement.transform.position += Vector3.right * moveSpeed * Time.deltaTime;
 
             // Destroy clouds out of bounds
-            if (Mathf.Abs(cloudElement.transform.position.x) > minX)
+            if (cloudElement.transform.position.x < -15)
             {
                 Destroy(cloudElement);
                 clouds.RemoveAt(i);

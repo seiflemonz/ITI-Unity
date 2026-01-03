@@ -571,6 +571,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4495315085886265232, guid: 5c181bf18f1d0f946ab32e1581837639, type: 3}
+      propertyPath: m_UsedByEffector
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8081652086911665656, guid: 5c181bf18f1d0f946ab32e1581837639, type: 3}
       propertyPath: m_Name
       value: 54-548180_xr700-xr700-xr700-plus-sign-white-png-clipart (1)
@@ -579,7 +583,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

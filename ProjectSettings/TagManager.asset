@@ -8,6 +8,8 @@ TagManager:
   - Zombie
   - Bullet
   - Health
+  - Rope
+  - Spike
   layers:
   - Default
   - TransparentFX
@@ -62,6 +64,12 @@ TagManager:
     locked: 0
   - name: Humans
     uniqueID: 315254637
+    locked: 0
+  - name: Interactables
+    uniqueID: 759633919
+    locked: 0
+  - name: Water
+    uniqueID: 3802152275
     locked: 0
   m_RenderingLayers:
   - Default
